@@ -1,7 +1,11 @@
+data "template_file" "key_policy" {
+   template = "${var.key_policy_path}"
+}
+
 resource "aws_kms_key" "key" {
    description             = "${var.description}"
    key_usage               = "ENCRYPT_DECRYPT"
-   policy                  = "${var.key_policy}"
+   policy                  = "${data.template_file.key_policy.rendered}"
    is_enabled              = true
 
    tags {

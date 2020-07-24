@@ -19,3 +19,4 @@ variable "key_policy" {
   default     = ""
 }
 
+variable "key_policy_path" { }
