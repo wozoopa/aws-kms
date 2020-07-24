@@ -3,6 +3,8 @@ data "template_file" "key_policy" {
 }
 
 resource "aws_kms_key" "key" {
+   depends_on              = ["aws_kms_alias.key_alias"]
+
    description             = "${var.description}"
    key_usage               = "ENCRYPT_DECRYPT"
    policy                  = "${data.template_file.key_policy.rendered}"
