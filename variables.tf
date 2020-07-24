@@ -13,10 +13,4 @@ variable "environment" {
   type        = "string"
 }
 
-variable "key_policy" {
-  description = "The policy of the key usage"
-  type        = "string"
-  default     = ""
-}
-
 variable "key_policy_path" { }
